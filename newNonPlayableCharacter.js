@@ -22,27 +22,76 @@ function newNonPlayableCharacter(x, y) {
     }
 
     setInterval(moveCharacter, 1)
+    // const myPromise = new Promise((resolve, reject) => {
+    //     setTimeout(() => {
+    //       resolve("foo");
+    //     }, 300);
+    //   });
 
-    function walkEast() {
-        direction = 'east'
-        element.src = `./assets/red-character/east.gif`
+    function walkEast(time) {
+        const myPromise = new Promise((resolve)=> {
+            direction = 'east'
+            element.src = `./assets/red-character/east.gif`
+            setTimeout(() => {
+                stop()
+                resolve('promise resolved');
+            }, time);
+        });
+
+        myPromise.then((val) => {
+            console.log(val);
+        });
+  
     }
 
-    function walkNorth() {
-        direction = 'north'
-        element.src = `./assets/red-character/north.gif`
+    function walkNorth(time) {
+        const myPromise = new Promise((resolve)=> {
+            direction = 'north'
+            element.src = `./assets/red-character/north.gif`
+            setTimeout(() => {
+                stop()
+                resolve('promise resolved');
+            }, time)
+
+            myPromise.then((val) => {
+                console.log(val);
+            });
+
+        });
+
     }
 
-    function walkWest() {
-        direction = 'west'
-        element.src = `./assets/red-character/west.gif`
-    }
+    function walkWest(time) {
+        const myPromise = new Promise((resolve)=> {
+            direction = 'west'
+            element.src = `./assets/red-character/west.gif`
+            setTimeout(() => {
+                stop()
+                resolve('promise resolved');
+            }, time)
 
-    function walkSouth() {
-        direction = 'south'
-        element.src = `./assets/red-character/south.gif`
-    }
+            myPromise.then((val) => {
+                console.log(val);
+            });
 
+    });
+}
+
+    function walkSouth(time) {
+        const myPromise = new Promise((resolve)=> {
+            direction = 'south'
+            element.src = `./assets/red-character/south.gif`
+            setTimeout(() => {
+                stop()
+                resolve('promise resolved');
+            }, time)
+
+            myPromise.then((val) => {
+                console.log(val);
+            });
+
+    });
+}
     function stop() {
         direction = null
         element.src = `./assets/red-character/static.gif`
